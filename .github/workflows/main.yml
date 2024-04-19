@@ -1,0 +1,22 @@
+name: Vars_Demo
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  display-variables:
+    name: demo
+    runs-on: ubuntu-latest
+    steps:
+    - name: Use variables
+      run: |
+        #echo "repository variable : $REPOSITORY_VAR"
+        echo "organization variable : $ORGANIZATION_VAR"
+        echo "Only variable : ${{ vars}}"
+        #echo "overridden variable : $OVERRIDE_VAR"
+        #echo "variable from shell environment : $env_var"
+      env:
+        #REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+        #OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
